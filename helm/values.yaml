@@ -1,3 +1,2 @@
 frontend:
-  image: registry.cn-hangzhou.aliyuncs.com/acs-sample/nginxdemos
-  tag: latest
+  image: crpi-yslppr30h5z0zewo.cn-hangzhou.personal.cr.aliyuncs.com/go-for-docker/docker:nginx-20240930
