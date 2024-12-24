@@ -1,2 +1,3 @@
 frontend:
-  image: "crpi-yslppr30h5z0zewo.cn-hangzhou.personal.cr.aliyuncs.com/go-for-docker/docker:nginx-20240930" 
+  image: crpi-yslppr30h5z0zewo.cn-hangzhou.personal.cr.aliyuncs.com/cnpsp/image
+  tag: 1.0
