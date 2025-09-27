@@ -19,7 +19,7 @@ spec:
         image: "{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}"
         imagePullPolicy: Always
         ports:
-        - containerPort: 3000
+        - containerPort: 8080
         env:
         - name: REACT_APP_NAMESPACES
           value: {{ .Release.Namespace }}
@@ -34,5 +34,5 @@ spec:
   selector:
     app: frontend
   ports:
-  - port: 3000
-    targetPort: 3000
+  - port: 8080
+    targetPort: 8080
