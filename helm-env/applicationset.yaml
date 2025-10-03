@@ -7,7 +7,7 @@ spec:
   generators:
     - git:
         repoURL: "https://github.com/demingtang/argocd.git"
-        revision: HEAD
+        revision: main
         pathParamPrefix: example
         files:
           - path: "helm-env/env/*/values.yaml"
