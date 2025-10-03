@@ -1,3 +1,3 @@
 frontend:
   image:  m.daocloud.io/docker.io/library/tomcat
-  tag: 8.5.100-jdk8
+  tag: 8.5.40
