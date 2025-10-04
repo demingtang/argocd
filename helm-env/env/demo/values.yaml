@@ -2,6 +2,7 @@ frontend:
   image:  m.daocloud.io/docker.io/library/tomcat
   tag: 8.5.40
 
+replicaCount: 4
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -14,3 +15,10 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}    
