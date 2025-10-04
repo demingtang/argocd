@@ -1,3 +1,5 @@
 frontend:
   image:  m.daocloud.io/docker.io/library/tomcat
   tag: 10
+
+replicaCount: 3  
