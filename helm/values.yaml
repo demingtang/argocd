@@ -1,7 +1,7 @@
   replicaCount: 1
   image:
     repository: victoriametrics/vmagent
-    tag: v1.135.0
+    tag: v1.137.0
 
   remoteWriteUrl: "http://vminsert.monitoring.svc.cluster.local:8480/api/v1/write"
 
