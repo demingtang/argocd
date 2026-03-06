@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: victoriametrics/vmagent
   tag: v1.137.0
-remoteWriteUrl: "http://vminsert.monitoring.svc.cluster.local:8480/api/v1/write"
+remoteWriteUrl: "http://victoria-metrics-victoria-metrics-cluster-vminsert.victoria.svc.cluster.local.:8480/insert/0/prometheus/"
 namespace: monitoring
 config:
   scrape_interval: 30s
