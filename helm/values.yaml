@@ -1,3 +1,18 @@
 frontend:
-  image:  m.daocloud.io/docker.io/library/tomcat
-  tag: 8.5.40
+  replicaCount: 1
+  image:
+    repository: victoriametrics/vmagent
+    tag: v1.135.0
+
+  remoteWriteUrl: "http://vminsert.monitoring.svc.cluster.local:8480/api/v1/write"
+
+  namespace: monitoring
+
+  config:
+    scrape_interval: 30s
+    job_name: "Tomcat-jvm"
+    targets:
+      - "tomcat-1:9404"
+      - "tomcat-2:9404"
+    labels:
+      env: staging

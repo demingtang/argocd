@@ -1,38 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: vmagent
+  namespace: {{ .Values.frontend.namespace }}
   labels:
-    app: frontend
+    app: vmagent
 spec:
-  replicas: 2
+  replicas: {{ .Values.frontend.replicaCount }}
   selector:
     matchLabels:
-      app: frontend
+      app: vmagent
   template:
     metadata:
       labels:
-        app: frontend
+        app: vmagent
+      annotations:
+        # 可以用 ConfigMap hash 或 CI/CD 替换
+        configmap-hash: "CHANGE_ME_HASH"
     spec:
       containers:
-      - name: react-frontend
-        image: "{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}"
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
-        env:
-        - name: REACT_APP_NAMESPACES
-          value: {{ .Release.Namespace }}
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend-service
-spec:
-  type: ClusterIP
-  selector:
-    app: frontend
-  ports:
-  - port: 8080
-    targetPort: 8080
+      - name: vmagent
+        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        args:
+          - "-promscrape.config=/etc/vmagent/vmagent.yaml"
+          - "-remoteWrite.url={{ .Values.frontend.remoteWriteUrl }}"
+        volumeMounts:
+        - name: config
+          mountPath: /etc/vmagent
+      volumes:
+      - name: config
+        configMap:
+          name: vmagent-config
