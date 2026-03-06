@@ -13,3 +13,11 @@ config:
     - "10.31.192.120:9404"
   labels:
     env: staging
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1Gi"
+    cpu: "1"    

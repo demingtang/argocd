@@ -15,7 +15,6 @@ spec:
       labels:
         app: vmagent
       annotations:
-        # 可以用 ConfigMap hash 或 CI/CD 替换
         configmap-hash: "CHANGE_ME_HASH"
     spec:
       containers:
@@ -27,6 +26,13 @@ spec:
         volumeMounts:
         - name: config
           mountPath: /etc/vmagent
+        resources:
+          requests:
+            memory: "{{ .Values.resources.requests.memory }}"
+            cpu: "{{ .Values.resources.requests.cpu }}"
+          limits:
+            memory: "{{ .Values.resources.limits.memory }}"
+            cpu: "{{ .Values.resources.limits.cpu }}"
       volumes:
       - name: config
         configMap:
