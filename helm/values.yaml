@@ -13,5 +13,6 @@
     targets:
       - "tomcat-1:9404"
       - "tomcat-2:9404"
+      - "10.31.192.120:9404"
     labels:
       env: staging
