@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vmagent
-  namespace: {{ .Values.frontend.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: vmagent
 spec:
-  replicas: {{ .Values.frontend.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: vmagent
@@ -20,10 +20,10 @@ spec:
     spec:
       containers:
       - name: vmagent
-        image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         args:
           - "-promscrape.config=/etc/vmagent/vmagent.yaml"
-          - "-remoteWrite.url={{ .Values.frontend.remoteWriteUrl }}"
+          - "-remoteWrite.url={{ .Values.remoteWriteUrl }}"
         volumeMounts:
         - name: config
           mountPath: /etc/vmagent
