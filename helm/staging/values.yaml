@@ -1,3 +1,4 @@
+remoteWrite: "http://victoria-metrics-victoria-metrics-cluster-vminsert.victoria.svc.cluster.local.:8480/insert/0/prometheus/"
 extraScrapeConfigs:
   - job_name: "Tomcat-jvm"
 
