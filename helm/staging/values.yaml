@@ -38,13 +38,13 @@ probe:
     initialDelaySeconds: 5
     periodSeconds: 15
     timeoutSeconds: 5
-
+namespace: monitoring
 config:
   scrape_interval: 30s
   job_name: "Tomcat-jvm"
   targets:
-    - "10.31.192.122:9404"
-    - "10.31.192.121:9404"
+    - "tomcat-1:9404"
+    - "tomcat-2:9404"
     - "10.31.192.120:9404"
   labels:
     env: 'staging'
