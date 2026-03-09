@@ -1,26 +1,25 @@
-remoteWrite:
-  - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
-
-mode: deployment
-replicaCount: 2
-
-deployment:
-  spec:
-    strategy:
-      type: RollingUpdate
-      rollingUpdate:
-        maxSurge: 25%
-        maxUnavailable: 25%
-
+replicaCount: 1
 image:
   repository: victoriametrics/vmagent
-  tag: v1.106.0
-  pullPolicy: IfNotPresent
-
-# serviceAccount:
-#   create: true
-
-# rbac:
-#   create: true
-
+  tag: v1.137.0
+remoteWriteUrl: "http://victoria-metrics-victoria-metrics-cluster-vminsert.victoria.svc.cluster.local.:8480/insert/0/prometheus/"
 namespace: monitoring
+config:
+  scrape_interval: 30s
+  job_name: "Tomcat-jvm"
+  targets:
+    - "tomcat-1:9404"
+    - "tomcat-2:9404"
+    - "10.31.192.120:9404"
+  labels:
+    env: staging
+    application: tomcat
+
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1Gi"
+    cpu: "1"  
