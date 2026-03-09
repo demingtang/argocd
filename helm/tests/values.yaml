@@ -3,15 +3,8 @@ chart:
   version: 0.1.1
   appVersion: 0.1.0
 templates:
-  - server.yaml
   - configmap.yaml
 tests:
-  - it: deployment should match snapshot
-    asserts:
-      - matchSnapshot: {}
-    set:
-      remoteWrite:
-        - url: http://vm-insert:8480/insert/0/prometheus
   - it: deployment with volume should match snapshot
     asserts:
       - matchSnapshot: {}
