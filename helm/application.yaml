@@ -1,34 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: vmagent
+  name: example-vmagent
   namespace: argocd
 spec:
-  generators:
-    - git:
-        repoURL: "https://github.com/demingtang/argocd.git"
-        revision: main
-        pathParamPrefix: example
-        files:
-          - path: "helm/staging/*/values.yaml"
-  template:
-    metadata:
-      name: "{{example.path.basename}}"
-    spec:
-      project: default
-      source:
-        repoURL: "https://github.com/demingtang/argocd.git"
-        targetRevision: HEAD
-        path: "helm/staging"
-        helm:
-          valueFiles:
-            - "env/{{example.path.basename}}/values.yaml"
-      destination:
-        server: "https://kubernetes.default.svc"
-        namespace: "{{example.path.basename}}"
-      syncPolicy:
-        automated: 
-          prune: true
-          selfHeal: true
-        syncOptions:
-          - CreateNamespace=true
+  project: default
+  source:
+    repoURL: "https://github.com/demingtang/argocd.git"
+    targetRevision: HEAD
+    path: helm
+    helm:
+      valueFiles:
+        - "values.yaml"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: "example"
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
