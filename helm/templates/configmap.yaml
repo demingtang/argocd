@@ -6,12 +6,12 @@ metadata:
 data:
   vmagent.yaml: |
     global:
-      scrape_interval: {{ .Values.config.scrape_interval | default "30s" }}
+      scrape_interval: {{ default "30s" .Values.config.scrape_interval }}
 
     scrape_configs:
-    - job_name: {{ .Values.config.job_name | quote }}
+    - job_name: {{ default "vmagent-job" .Values.config.job_name | quote }}
       static_configs:
       - targets:
-{{ toYaml .Values.config.targets | indent 8 }}
+{{ toYaml (default list .Values.config.targets) | indent 8 }}
         labels:
-{{ toYaml .Values.config.labels | indent 10 }}
+{{ toYaml (default dict .Values.config.labels) | indent 10 }}
