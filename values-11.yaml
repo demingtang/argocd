@@ -122,7 +122,7 @@ podDisruptionBudget:
 # -- Generates `remoteWrite.*` flags and config maps with value content for values, that are of type list of map.
 # Each item should contain `url` param to pass validation.
 remoteWrite: []
-# - url: http://vm-insert:8480/insert/0/prometheus
+  - url: http://victoria-metrics-victoria-metrics-cluster-vminsert.victoria.svc.cluster.local.:8480/insert/0/prometheus/
 #   urlRelabelConfig:
 #     - action: keep
 #       source_labels: [env]
@@ -794,3 +794,4 @@ license:
     name: ""
     # -- Key in secret with license key
     key: ""
+
