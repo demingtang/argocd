@@ -2,6 +2,42 @@ remoteWrite:
   - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
 
 mode: deployment
+replicaCount: 2
+
+deployment:
+  spec:
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+
+image:
+  repository: victoriametrics/vmagent
+  tag: v1.106.0
+  pullPolicy: IfNotPresent
+
+# serviceAccount:
+#   create: true
+
+# rbac:
+#   create: true
+
+
+probe:
+  readiness:
+    httpGet:
+      path: /metrics
+      port: 8429
+    initialDelaySeconds: 5
+    periodSeconds: 15
+  liveness:
+    httpGet:
+      path: /metrics
+      port: 8429
+    initialDelaySeconds: 5
+    periodSeconds: 15
+    timeoutSeconds: 5
 
 extraScrapeConfigs:
   - job_name: "Tomcat-jvm"
