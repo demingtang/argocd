@@ -1,14 +1,17 @@
 remoteWrite:
   - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
 
-replicaCount: 3
+replicaCount: 2
 deployment:
   enabled: false
 statefulset:
   enabled: true
   clusterMode: true
   replicationFactor: 2
-
+rbac:
+  enabled: false
+serviceAccount:
+  enabled: false   
 env:
   - name: ENV_VAR
     value: "just make sure that env var works"
