@@ -312,12 +312,12 @@ resources:
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+  limits:
+    cpu: 1000m
+    memory: 1024Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
 
 # -- Annotations to be added to the deployment
 annotations: {}
@@ -445,16 +445,16 @@ verticalPodAutoscaling:
   #       controlledResources: ["cpu", "memory"]
 
 # -- VMAgent scrape configuration
-# config:
-#   # -- Enable config templating
-#   useTpl: false
-#   global:
-#     scrape_interval: 10s
+config:
+  # -- Enable config templating
+  useTpl: false
+  global:
+    scrape_interval: 10s
 
-  # scrape_configs:
-  #   - job_name: vmagent
-  #     static_configs:
-  #       - targets: ["localhost:8429"]
+  scrape_configs:
+    - job_name: vmagent
+      static_configs:
+        - targets: ["localhost:8429"]
 # -- Extra scrape configs that will be appended to `config`
 extraScrapeConfigs: []
 
