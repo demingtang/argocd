@@ -1,7 +1,7 @@
 remoteWrite:
   - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
 
-replicaCount: 2
+replicaCount: 1
 deployment:
   enabled: true
 rbac:
