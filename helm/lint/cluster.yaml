@@ -8,8 +8,8 @@ statefulset:
   enabled: true
   clusterMode: true
   replicationFactor: 2
-rbac:
-  enabled: false
+# rbac:
+#   enabled: false
 # serviceAccount:
 #   enabled: false   
 env:
