@@ -37,8 +37,8 @@ deployment:
     # -- Deployment strategy. Check [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy) for details
     strategy: {}
      rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+       maxSurge: 25%
+       maxUnavailable: 25%
      type: RollingUpdate
 
 # -- [K8s StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) specific variables
