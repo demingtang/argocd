@@ -10,8 +10,8 @@ statefulset:
   replicationFactor: 2
 rbac:
   enabled: false
-serviceAccount:
-  enabled: false   
+# serviceAccount:
+#   enabled: false   
 env:
   - name: ENV_VAR
     value: "just make sure that env var works"
