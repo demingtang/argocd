@@ -39,15 +39,13 @@ probe:
     periodSeconds: 15
     timeoutSeconds: 5
 
-extraScrapeConfigs:
-  - job_name: "Tomcat-jvm"
-
-    static_configs:
-      - targets:
-          - 192.168.43.201:9404
-          - 192.168.43.23:9404
-          - 192.168.43.190:9404
-          - 192.168.43.240:9404
-        labels:
-          env: staging
-          application: tomcat
+config:
+  scrape_interval: 30s
+  job_name: "Tomcat-jvm"
+  targets:
+    - "10.31.192.122:9404"
+    - "10.31.192.121:9404"
+    - "10.31.192.120:9404"
+  labels:
+    env: 'staging'
+    application: 'tomcat'

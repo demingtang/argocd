@@ -1,9 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: vmagent-config
-  namespace: vm-agent
+  name: {{ .Release.Name }}-config
+  namespace: {{ .Release.Namespace }}
 data:
   vmagent.yaml: |
+    global:
+      scrape_interval: {{ .Values.config.scrape_interval | default "30s" }}
+
     scrape_configs:
-{{ toYaml (default list .Values.extraScrapeConfigs) | indent 6 }}
+    - job_name: {{ .Values.config.job_name | quote }}
+      static_configs:
+      - targets:
+{{ toYaml .Values.config.targets | indent 8 }}
+        labels:
+{{ toYaml .Values.config.labels | indent 10 }}
