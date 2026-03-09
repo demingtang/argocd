@@ -121,7 +121,7 @@ podDisruptionBudget:
 
 # -- Generates `remoteWrite.*` flags and config maps with value content for values, that are of type list of map.
 # Each item should contain `url` param to pass validation.
-remoteWrite: []
+remoteWrite:
   - url: http://vm-insert:8480/insert/0/prometheu
 #   urlRelabelConfig:
 #     - action: keep
