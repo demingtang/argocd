@@ -1,13 +1,7 @@
 annotations:
   artifacthub.io/category: monitoring-logging
 apiVersion: v2
-appVersion: v1.135.0
-dependencies:
-- name: victoria-metrics-common
-  repository: https://victoriametrics.github.io/helm-charts
-  version: 0.0.*
-description: VictoriaMetrics Agent - collects metrics from various sources and stores
-  them to VictoriaMetrics
+appVersion: v1.137.0
 keywords:
 - vmagent
 kubeVersion: '>=1.25.0-0'
