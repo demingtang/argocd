@@ -59,7 +59,7 @@ image:
   # -- Image repository
   repository: victoriametrics/vmagent
   # -- Image tag, set to `Chart.AppVersion` by default
-  tag:  "{{ .Chart.AppVersion }}" # rewrites Chart.AppVersion
+  tag:  v1.137.0 # rewrites Chart.AppVersion
   # -- Variant of the image to use.
   # e.g. enterprise, scratch
   variant: ""
