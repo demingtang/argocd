@@ -4,8 +4,7 @@ remoteWrite:
 replicaCount: 1
 deployment:
   enabled: true
-rbac:
-  enabled: false
+
 serviceAccount:
   enabled: false   
 env:
