@@ -23,19 +23,4 @@ image:
 # rbac:
 #   create: true
 
-
-probe:
-  readiness:
-    httpGet:
-      path: /metrics
-      port: 8429
-    initialDelaySeconds: 5
-    periodSeconds: 15
-  liveness:
-    httpGet:
-      path: /metrics
-      port: 8429
-    initialDelaySeconds: 5
-    periodSeconds: 15
-    timeoutSeconds: 5
 namespace: monitoring
