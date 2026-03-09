@@ -1,0 +1,12 @@
+extraScrapeConfigs:
+  - job_name: "Tomcat-jvm"
+
+    static_configs:
+      - targets:
+          - 192.168.43.201:9404
+          - 192.168.43.23:9404
+          - 192.168.43.190:9404
+          - 192.168.43.240:9404
+        labels:
+          env: staging
+          application: tomcat
