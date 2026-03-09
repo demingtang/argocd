@@ -3,7 +3,7 @@ remoteWrite:
 
 replicaCount: 3
 deployment:
-  enabled: Enable
+  enabled: true
 
 extraScrapeConfigs:
   - job_name: "Tomcat-jvm"
