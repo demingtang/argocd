@@ -12,7 +12,7 @@ spec:
     helm:
       valueFiles:
         - "values.yaml"
-        - "tests/*.yaml"
+        - "helm/tests/server_test.yaml"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "example"
