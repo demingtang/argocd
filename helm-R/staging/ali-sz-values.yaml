@@ -1,0 +1,29 @@
+victoria-metrics-agent:
+
+  deployment:
+    enabled: true
+
+  replicaCount: 2
+
+  service:
+    enabled: false
+  rbac:
+    create: false
+    
+  serviceAccount:
+    create: false
+    name: ""
+
+  remoteWrite:
+    - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
+
+  config:
+    scrape_configs:
+      - job_name: Tomcat-jvm
+        static_configs:
+          - targets:
+              - 192.168.56.101:9404
+              - 192.168.56.102:9404
+            labels:
+              application: tomcat
+              env: staging

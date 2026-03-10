@@ -12,6 +12,7 @@ spec:
     helm:
       valueFiles:
         - "staging/values.yaml"
+        - "staging/ali-sz-values.yaml"
   destination:
     server: "https://kubernetes.default.svc"
     namespace: "example"
