@@ -4,7 +4,7 @@ remoteWrite:
 
 deployment:
   enabled: true
-  
+
 serviceAccount:
   create: false
 
@@ -17,7 +17,6 @@ env:
 config:
   scrape_configs:
     - job_name: Tomcat-jvm
-
       static_configs:
         - targets:
             - 192.168.56.101:8080
