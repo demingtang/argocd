@@ -2,7 +2,7 @@ victoria-metrics-agent:
   deployment:
     enabled: true
 
-  replicaCount: 2
+  replicaCount: 3
 
   service:
     enabled: false
@@ -22,39 +22,3 @@ victoria-metrics-agent:
       cpu: 2
   remoteWrite:
     - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
-
-# remoteWrite:
-#   - url: http://cluster-victoria-metrics-cluster-vminsert.default.svc.cluster.local:8480/insert/0/prometheus/
-
-
-# deployment:
-#   enabled: true
-
-# serviceAccount:
-#   create: false
-
-# replicaCount: 2
-
-# env:
-#   - name: ENV_VAR
-#     value: "just make sure that env var works111222"
-
-# config:
-#   scrape_configs:
-#     - job_name: Tomcat-jvm
-#       static_configs:
-#         - targets:
-#             - 192.168.56.101:8080
-#             - 192.168.56.102:8080
-#             - 192.168.56.103:8080                        
-#           labels:
-#             application: tomcat
-#             env:  staging
-
-# resources:
-#   requests:
-#     memory: "512Mi"
-#     cpu: "500m"
-#   limits:
-#     memory: "2Gi"
-#     cpu: "2"
