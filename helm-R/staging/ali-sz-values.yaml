@@ -5,7 +5,7 @@ victoria-metrics-agent:
       - job_name: Tomcat-jvm
         static_configs:
           - targets:
-              - 192.168.56.101:9404
+              - 192.168.56.111:9404
               - 192.168.56.102:9404
               - 192.168.56.103:9404              
             labels:
