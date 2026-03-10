@@ -5,9 +5,6 @@ remoteWrite:
 deployment:
   enabled: true
 
-serviceAccount:
-  create: false
-
 replicaCount: 2
 
 env:
