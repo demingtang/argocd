@@ -30,11 +30,11 @@ data:
 {{- end -}}
 {{- with (include "vmagent.rw.config" .) }}
 ---
-# apiVersion: v1
-# kind: ConfigMap
-# metadata:
-#   name: {{ $fullname }}-rw
-#   namespace: {{ $ns }}
-#   labels: {{ include "vm.labels" $ctx | nindent 4 }}
-# data: {{ . | nindent 2 }}
-# {{- end }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $fullname }}-rw
+  namespace: {{ $ns }}
+  labels: {{ include "vm.labels" $ctx | nindent 4 }}
+data: {{ . | nindent 2 }}
+{{- end }}
