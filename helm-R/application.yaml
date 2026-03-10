@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/demingtang/argocd.git"
     targetRevision: HEAD
-    path: helm
+    path: helm-R
     helm:
       valueFiles:
         - "staging/values.yaml"
