@@ -2,7 +2,7 @@ victoria-metrics-agent:
   deployment:
     enabled: true
 
-  replicaCount: 3
+  replicaCount: 1
 
   service:
     enabled: false
