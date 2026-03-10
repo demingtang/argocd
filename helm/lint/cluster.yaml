@@ -10,4 +10,14 @@ replicaCount: 2
 
 env:
   - name: ENV_VAR
-    value: "just make sure that env var works"
+    value: "just make sure that env var works111"
+
+config:
+  scrape_configs:
+    - job_name: vmagent-1
+      targets:
+        - "10.31.192.121:9404"
+        - "10.31.192.122:9404"
+        - "10.31.192.120:9404"
+  labels:
+    env: 'staging'
