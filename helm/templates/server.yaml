@@ -134,10 +134,10 @@ spec:
               mountPath: /tmpData
             - name: scrape-config
               mountPath: /config/scrape
-            {{- with (include "vmagent.rw.config" .) }}
-            - name: rw-config
-              mountPath: /config/rw
-            {{- end }}
+            # {{- with (include "vmagent.rw.config" .) }}
+            # - name: rw-config
+            #   mountPath: /config/rw
+            # {{- end }}
             {{- range $app.extraHostPathMounts }}
             - name: {{ .name }}
               mountPath: {{ .mountPath }}
@@ -187,11 +187,11 @@ spec:
           emptyDir: {{ toYaml $app.emptyDir | nindent 12 }}
           {{- end }}
         {{- end }}
-        {{- with (include "vmagent.rw.config" .) }}
-        - name: rw-config
-          configMap:
-            name: {{ $fullname -}}-rw
-        {{- end }}
+        # {{- with (include "vmagent.rw.config" .) }}
+        # - name: rw-config
+        #   configMap:
+        #     name: {{ $fullname -}}-rw
+        # {{- end }}
         - name: scrape-config
           configMap:
             name: {{ include "vmagent.scrape.config.name" $ctx }}
