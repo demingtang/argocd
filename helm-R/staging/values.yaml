@@ -1,4 +1,18 @@
 victoria-metrics-agent:
+  deployment:
+    enabled: true
+
+  replicaCount: 2
+
+  service:
+    enabled: false
+  rbac:
+    create: false
+    
+  serviceAccount:
+    create: false
+    name: ""
+
   resources:
     requests:
       memory: 512Mi
