@@ -1,5 +1,5 @@
 {{- $ctx := dict "helm" . }}
-{{- $fullname := include "vm.plain.fullname" $ctx }}
+# {{- $fullname := include "vm.plain.fullname" $ctx }}
 {{- $ns := include "vm.namespace" $ctx }}
 {{- if and (empty .Values.configMap) .Values.config }}
   {{- $cfg := deepCopy .Values.config }}
