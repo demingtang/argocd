@@ -19,7 +19,7 @@ annotations:
   #   Chart documentation is available [here](https://docs.victoriametrics.com/helm/victoria-metrics-agent/)
 apiVersion: v2
 appVersion: v1.137.0
-# name: victoria-metrics-agent
+name: victoria-metrics-agent
 # sources:
 # - https://github.com/VictoriaMetrics/helm-charts
 # type: application
