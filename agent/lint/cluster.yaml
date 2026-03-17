@@ -9,7 +9,7 @@ serviceAccount:
   create: false
 
 
-replicaCount: 1
+replicaCount: 2
 
 service:
   enabled: false
