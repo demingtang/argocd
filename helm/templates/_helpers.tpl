@@ -53,6 +53,7 @@
 
 {{- define "vmagent.scrape.config.name" -}}
   {{- $Values := (.helm).Values | default .Values -}}
-  {{- $fullname := include "vm.plain.fullname" . -}}
+  {{- $name := default "vmagent" .Values.nameOverride -}}
+  {{- $fullname := printf "%s-%s" .Release.Name $name -}}
   {{- $Values.configMap | default (printf "%s-config" $fullname) -}}
 {{- end -}}
