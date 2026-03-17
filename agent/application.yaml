@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "https://github.com/demingtang/argocd.git"
     targetRevision: HEAD
-    path: helm
+    path: agent
     helm:
       valueFiles:
         - "lint/cluster.yaml"
