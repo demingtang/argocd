@@ -5,7 +5,7 @@
 {{- if and $mode (hasKey $app $mode) }}
 {{- $modeOpts := index $app $mode }}
 {{- $ctx := dict "helm" . }}
-# {{- $fullname := include "vm.plain.fullname" $ctx }}
+{{- $fullname := include "vm.plain.fullname" $ctx }}
 {{- $ns := include "vm.namespace" $ctx }}
 apiVersion: apps/v1
 kind: {{ title $mode }}
