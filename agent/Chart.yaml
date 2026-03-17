@@ -19,10 +19,10 @@ annotations:
     Chart documentation is available [here](https://docs.victoriametrics.com/helm/victoria-metrics-agent/)
 apiVersion: v2
 appVersion: v1.137.0
-dependencies:
-- name: victoria-metrics-common
-  repository: https://victoriametrics.github.io/helm-charts
-  version: 0.0.*
+# dependencies:
+# - name: victoria-metrics-common
+#   repository: https://victoriametrics.github.io/helm-charts
+#   version: 0.0.*
 description: VictoriaMetrics Agent - collects metrics from various sources and stores
   them to VictoriaMetrics
 home: https://github.com/VictoriaMetrics/helm-charts
