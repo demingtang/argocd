@@ -19,7 +19,7 @@ rbac:
 
 env:
   - name: ENV_VAR
-    value: "just make sure that env var works111222"
+    value: "just make sure that env var works1112288888882"
 
 config:
   scrape_configs:
